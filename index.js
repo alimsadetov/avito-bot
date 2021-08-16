@@ -57,7 +57,7 @@ bot.on('text', (msg) =>{
         //       result2 = `https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}`
         //   }
           
-      });
+      // });
     }, 10000);
     }
     else{
