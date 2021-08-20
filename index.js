@@ -42,10 +42,11 @@ bot.on('text', (msg) =>{
             let $ = cheerio.load(res.body);
             //console.log($('div[data-marker = catalog-serp]>div[data-marker = item]'))
             //console.log(`https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}`)
+            console.log(`https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}`)
             if ((`https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}` !== result) && (`https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}` !== 'https://www.avito.ru/undefined')){
                 bot.sendMessage(msg.chat.id, `https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}`);
                 result = `https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}`
-                console.log(`https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}`)
+                
             }
             
         });
