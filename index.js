@@ -45,24 +45,26 @@ bot.on('text', (msg) =>{
             if ((`https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}` !== result) && (`https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}` !== 'https://www.avito.ru/undefined')){
                 bot.sendMessage(msg.chat.id, `https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}`);
                 result = `https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}`
+                console.log(`https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}`)
             }
             
         });
         
     }, 10000);
-      setInterval(function() {
-        needle.get(URL2, function(err2, res2){
-          //console.log(res.body);
-          if (err2) return;
-          let $ = cheerio.load(res2.body);
-          //console.log(`https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}`)
-          if ((`https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}` !== result2) && (`https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}` !== 'https://www.avito.ru/undefined')){
-              bot.sendMessage(msg.chat.id, `https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}`);
-              result2 = `https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}`
-          }
+      // setInterval(function() {
+      //   needle.get(URL2, function(err2, res2){
+      //     //console.log(res.body);
+      //     if (err2) return;
+      //     let $ = cheerio.load(res2.body);
+      //     //console.log(`https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}`)
+      //     if ((`https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}` !== result2) && (`https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}` !== 'https://www.avito.ru/undefined')){
+      //         bot.sendMessage(msg.chat.id, `https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}`);
+      //         result2 = `https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}`
+      //         console.log(`https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}`)
+      //     }
           
-      });
-      }, 15000)
+      // });
+      // }, 15000)
     }
     else{
       bot.sendMessage(msg.chat.id, 'Введите кодовое слово')
