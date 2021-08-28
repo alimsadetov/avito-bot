@@ -3,6 +3,7 @@ const cheerio = require('cheerio');
 const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
 const app     = express();
+const request = require('request');
 
 //`https://www.avito.ru${$('div[data-marker = catalog-serp]>div[data-marker = item]>.iva-item-content-m2FiN>.iva-item-body-NPl6W>.iva-item-titleStep-2bjuh>a').attr("href")}`)
 
@@ -44,7 +45,7 @@ bot.on('text', (msg) =>{
     if ((msg.text == 'пицца') || (msg.text == 'Пицца')){
       bot.sendMessage(msg.chat.id, `Привет, ${msg.chat.first_name}, сейчас пойдёт куча ссылок с обЪявлениями. Бот проверяет авито каждые 10 секунд.`);
       setInterval(function () {
-        needle.get(URL, function(err, res){
+        request(URL, function (err, res, body){
             //console.log(res.body);
             //if (err) return;
             let $ = cheerio.load(res.body);
@@ -57,7 +58,7 @@ bot.on('text', (msg) =>{
             }
 
             setTimeout(function() {
-              needle.get(URL2, function(err2, res2){
+              request(URL, function (err2, res2, body2){
                 //console.log(res.body);
                 //if (err2) return;
                 let $ = cheerio.load(res2.body);

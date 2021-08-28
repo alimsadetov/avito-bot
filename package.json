@@ -8,7 +8,8 @@
     "express": "^4.17.1",
     "htmlparser2": "^6.1.0",
     "needle": "^2.8.0",
-    "node-telegram-bot-api": "^0.54.0"
+    "node-telegram-bot-api": "^0.54.0",
+    "request": "^2.88.2"
   },
   "devDependencies": {},
   "scripts": {
