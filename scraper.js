@@ -2,7 +2,6 @@ const needle = require('needle');
 const cheerio = require('cheerio');
 const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
-const axios = require('axios')
 const app     = express();
 
 //`https://www.avito.ru${$('div[data-marker = catalog-serp]>div[data-marker = item]>.iva-item-content-m2FiN>.iva-item-body-NPl6W>.iva-item-titleStep-2bjuh>a').attr("href")}`)
