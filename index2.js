@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
 const app     = express();
-const axios = require('axios');
+const request = require('request');
 
 //`https://www.avito.ru${$('div[data-marker = catalog-serp]>div[data-marker = item]>.iva-item-content-m2FiN>.iva-item-body-NPl6W>.iva-item-titleStep-2bjuh>a').attr("href")}`)
 
@@ -31,58 +31,11 @@ let result2 ='';
 
 
 
-
-
-bot.on('text', (msg) =>{
-     if ((msg.text == 'пицца') || (msg.text == 'Пицца')){
-       bot.sendMessage(msg.chat.id, `Привет, ${msg.chat.first_name}, сейчас пойдёт куча ссылок с обЪявлениями. Бот проверяет авито каждые 10 секунд.`);
-        setInterval(function(){
-          let res = axios(URL)
-          console.log(res)
-          let $ = cheerio.load(res);
-            //console.log($('div[data-marker = catalog-serp]>div[data-marker = item]'))
-            //console.log(`https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}`)
-            console.log(`https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}`)
-            if ((`https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}` !== result) && (`https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}` !== 'https://www.avito.ru/undefined')){
-                bot.sendMessage(msg.chat.id, `https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}`);
-                result = `https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}`
-                
-            }
-            
-        });
-        }
-       //   setInterval(function () {
-    //     needle.get(URL, function(err, res){
-    //         //console.log(res.body);
-    //         if (err) return;
-    //         let $ = cheerio.load(res.body);
-    //         //console.log($('div[data-marker = catalog-serp]>div[data-marker = item]'))
-    //         //console.log(`https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}`)
-    //         console.log(`https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}`)
-    //         if ((`https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}` !== result) && (`https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}` !== 'https://www.avito.ru/undefined')){
-    //             bot.sendMessage(msg.chat.id, `https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}`);
-    //             result = `https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}`
-                
-    //         }
-            
-    //     });
-        
-    // }, 10000);
-      // setInterval(function() {
-      //   needle.get(URL2, function(err2, res2){
-      //     //console.log(res.body);
-      //     if (err2) return;
-      //     let $ = cheerio.load(res2.body);
-      //     //console.log(`https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}`)
-      //     if ((`https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}` !== result2) && (`https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}` !== 'https://www.avito.ru/undefined')){
-      //         bot.sendMessage(msg.chat.id, `https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}`);
-      //         result2 = `https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}`
-      //         console.log(`https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}`)
-      //     }
-          
-      // });
-      // }, 15000)
-    else{
-      bot.sendMessage(msg.chat.id, 'Введите кодовое слово')
-    };
-});
+setInterval(function(){request('http://api.scrapestack.com/scrape?access_key=7d6251394aa6a4d06a233b6b5b55c792&url=https://www.avito.ru/simferopol/nastolnye_kompyutery?geoCoords=44.948314%2C34.100192&pmax=30000&radius=25&s=104&render_js=0&proxy_location=ru', function (err, res, body){
+  //console.log(res.body);
+  //if (err) return;
+  let $ = cheerio.load(res.body);
+  //console.log($('div[data-marker = catalog-serp]>div[data-marker = item]'))
+  console.log(`https://www.avito.ru/${$('div[data-marker = catalog-serp]>div[data-marker = item]').attr("data-item-id")}`)    
+  }
+  )}, 500);
