@@ -9,8 +9,11 @@ const request = require('request');
 
 const TOKEN = '1926731720:AAE-mYixPbnnhLRGU0NqDwvs_4AL0XNACqg';
 
-let URL = 'https://api.scrapestack.com/scrape?access_key=7d6251394aa6a4d06a233b6b5b55c792&url=https://www.avito.ru/simferopol/nastolnye_kompyutery?geoCoords=44.948314%2C34.100192&pmax=30000&radius=25&s=104&render_js=0&proxy_location=ru';
-let URL2 = 'https://api.scrapestack.com/scrape?access_key=7d6251394aa6a4d06a233b6b5b55c792&url=https://www.avito.ru/simferopol/tovary_dlya_kompyutera?f=ASgBAgECAUT4vA2Y0jQBRcaaDBV7ImZyb20iOjAsInRvIjoyMDAwMH0&geoCoords=44.948314%2C34.100192&radius=25&s=104&render_js=0&proxy_location=ru';
+//let URL = 'https://api.scrapestack.com/scrape?access_key=7d6251394aa6a4d06a233b6b5b55c792&url=https://www.avito.ru/simferopol/nastolnye_kompyutery?geoCoords=44.948314%2C34.100192&pmax=30000&radius=25&s=104&render_js=0&proxy_location=ru';
+//let URL2 = 'https://api.scrapestack.com/scrape?access_key=7d6251394aa6a4d06a233b6b5b55c792&url=https://www.avito.ru/simferopol/tovary_dlya_kompyutera?f=ASgBAgECAUT4vA2Y0jQBRcaaDBV7ImZyb20iOjAsInRvIjoyMDAwMH0&geoCoords=44.948314%2C34.100192&radius=25&s=104&render_js=0&proxy_location=ru';
+
+let URL = 'https://www.avito.ru/simferopol/nastolnye_kompyutery?geoCoords=44.948314%2C34.100192&pmax=30000&radius=25&s=104';
+let URL2 = 'https://www.avito.ru/simferopol/tovary_dlya_kompyutera?f=ASgBAgECAUT4vA2Y0jQBRcaaDBV7ImZyb20iOjAsInRvIjoyMDAwMH0&geoCoords=44.948314%2C34.100192&radius=25&s=104';
 
 const bot = new TelegramBot(TOKEN, {
     polling: true
