@@ -7,7 +7,7 @@ const request = require('request');
 
 //`https://www.avito.ru${$('div[data-marker = catalog-serp]>div[data-marker = item]>.iva-item-content-m2FiN>.iva-item-body-NPl6W>.iva-item-titleStep-2bjuh>a').attr("href")}`)
 
-const TOKEN = '1926731720:AAE-mYixPbnnhLRGU0NqDwvs_4AL0XNACqg';
+const TOKEN = '1961284283:AAGJZ5RAMQT_QsfhIE76ZD5BpEEXeGMJvR4';
 
 let URL = 'https://www.avito.ru/simferopol/nastolnye_kompyutery?geoCoords=44.948314%2C34.100192&pmax=30000&radius=25&s=104&user=1';
 let URL2 = 'https://www.avito.ru/simferopol/tovary_dlya_kompyutera?f=ASgBAgECAUT4vA2Y0jQBRcaaDBV7ImZyb20iOjAsInRvIjoyMDAwMH0&geoCoords=44.948314%2C34.100192&radius=25&s=104&user=1';
@@ -69,11 +69,11 @@ bot.on('text', (msg) =>{
                 }
                 
             });
-            }, getRandomTime(25000, 40000))
+            }, getRandomTime(20000, 35000))
             
         });
         
-    }, getRandomTime(40000, 55000));
+    }, getRandomTime(35000, 50000));
     }
     else{
       bot.sendMessage(msg.chat.id, 'Введите кодовое слово')
